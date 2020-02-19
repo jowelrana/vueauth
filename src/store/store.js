@@ -1,0 +1,15 @@
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+export const store = new Vuex.Store({
+  state: {
+    token: localStorage.getItem('access_token') || null,
+  },
+  getters: {
+    loggedIn(state) {
+      return state.token !== null
+    }
+  }
+})
